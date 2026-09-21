@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Functions with Arrays</title>
+</head>
+<body>
+    <h1>Functions and Arrays Working Together</h1>
+
+    <script>
+        // ==========================================
+        // 1. Passing an Array to a Function
+        // ==========================================
+        function printAllNames(namesArray) {
+            console.log("--- List of Names ---");
+            for (let i = 0; i < namesArray.length; i++) {
+                console.log(`Student ${i + 1}: ${namesArray[i]}`);
+            }
+        }
+
+        const students = ['Ali', 'Musa', 'Hani', 'Ahmed'];
+        printAllNames(students);
+
+
+        // ==========================================
+        // 2. Function Returning a Filtered Array
+        // ==========================================
+        // Function takes an array of numbers and returns a NEW array with only even numbers
+        function getEvenNumbers(numbers) {
+            let evenList = [];
+            for (let i = 0; i < numbers.length; i++) {
+                if (numbers[i] % 2 === 0) {
+                    evenList.push(numbers[i]);
+                }
+            }
+            return evenList;
+        }
+
+        const myNumbers = [12, 7, 20, 33, 44, 15];
+        const evensOnly = getEvenNumbers(myNumbers);
+        console.log("Original Numbers:", myNumbers);
+        console.log("Evens Only:", evensOnly); // [12, 20, 44]
+
+
+        // ==========================================
+        // 3. Arrow Functions with Array Methods (React Style)
+        // ==========================================
+
+        // Arrow function that calculates average score from an array
+        const calculateAverage = (scores) => {
+            let total = 0;
+            scores.forEach(score => {
+                total += score;
+            });
+            return total / scores.length;
+        };
+
+        const testScores = [80, 95, 70, 85, 90];
+        console.log("Average Score:", calculateAverage(testScores)); // 84
+
+
+        // ==========================================
+        // 4. Searching an Array Inside a Function
+        // ==========================================
+        // Returns the index if found, or -1 if not found
+        const findStudentIndex = (studentList, targetName) => {
+            for (let i = 0; i < studentList.length; i++) {
+                if (studentList[i].toLowerCase() === targetName.toLowerCase()) {
+                    return i; // Return immediately when found
+                }
+            }
+            return -1; // Return -1 if not found
+        };
+
+        console.log("Index of Hani:", findStudentIndex(students, 'Hani'));   // Index 2
+        console.log("Index of Tariq:", findStudentIndex(students, 'Tariq')); // -1
+    </script>
+</body>
+</html>

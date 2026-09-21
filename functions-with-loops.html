@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Functions with Loops</title>
+</head>
+<body>
+    <h1>Combining Functions with Loops</h1>
+
+    <script>
+        // 1. Function that calculates the sum of numbers from 1 up to 'n'
+        function calculateSumUpTo(n) {
+            let total = 0;
+            for (let i = 1; i <= n; i++) {
+                total += i;
+            }
+            return total;
+        }
+
+        console.log("Sum of 1 to 5:", calculateSumUpTo(5));   // 1 + 2 + 3 + 4 + 5 = 15
+        console.log("Sum of 1 to 10:", calculateSumUpTo(10)); // 55
+
+
+        // 2. Arrow function using a WHILE loop to print multiplication tables
+        const printTable = (number, limit = 5) => {
+            console.log(`--- Multiplication Table for ${number} ---`);
+            let count = 1;
+            while (count <= limit) {
+                console.log(`${number} x ${count} = ${number * count}`);
+                count++;
+            }
+        };
+
+        printTable(3);  // Prints 3 x 1 through 3 x 5
+        printTable(7, 3); // Prints 7 x 1 through 7 x 3
+
+
+        // 3. Function with a loop to search for a specific value
+        function containsName(nameList, targetName) {
+            for (let i = 0; i < nameList.length; i++) {
+                if (nameList[i].toLowerCase() === targetName.toLowerCase()) {
+                    return true; // Found, stop loop early
+                }
+            }
+            return false; // Loop finished without finding
+        }
+
+        const classmates = ['Ali', 'Musa', 'Hani', 'Ahmed'];
+        console.log("Is Hani present?", containsName(classmates, 'Hani'));   // true
+        console.log("Is Tariq present?", containsName(classmates, 'Tariq')); // false
+    </script>
+</body>
+</html>

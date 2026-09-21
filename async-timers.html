@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Async Timers</title>
+</head>
+<body>
+    <h1>Asynchronous Execution & Timers</h1>
+
+    <script>
+        console.log('Task 1: Script Execution Started');
+
+        // Delayed execution (5 seconds)
+        const delayedTimer = setTimeout(() => {
+            console.log('Task 2: Delayed task completed after 5s');
+        }, 5000);
+
+        // Cancels timer execution if uncommented
+        // clearTimeout(delayedTimer);
+
+        console.log('Task 3: Synchronous line executed immediately');
+
+        // Repeating Interval Timer
+        let count = 0;
+        const intervalTimer = setInterval(() => {
+            count++;
+            console.log('Interval Count:', count);
+
+            if (count >= 5) {
+                clearInterval(intervalTimer);
+                console.log('Interval cleared at count 5');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

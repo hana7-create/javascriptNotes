@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Objects & Destructuring</title>
+</head>
+<body>
+    <h1>Objects, Nested Objects & Destructuring</h1>
+
+    <script>
+        // Complex Object
+        const person = {
+            name: 'Hani',
+            age: 20,
+            lastName: 'Abdirahman',
+            address: {
+                street: '4th street',
+                city: 'Garissa',
+                country: 'Kenya'
+            },
+            isMarried: false,
+            skills: ['HTML', 'CSS', 'JavaScript']
+        };
+
+        console.log("City:", person.address.city);
+        console.log("Third Skill:", person.skills[2]);
+
+        // Modifying and updating Objects
+        const car = {
+            manufacture: 'Toyota',
+            year: 2020,
+            model: 'Defender',
+            color: 'blue'
+        };
+
+        car.price = 50000;  // Add new property
+        delete car.model;   // Remove property
+        console.log("Updated Car Object:", car);
+
+        // Bracket Notation Access
+        let student = { name: "Ahmed", age: 20 };
+        console.log("Access via bracket notation:", student["age"]);
+
+        // --- MISSING DESTRUCTURING (ESSENTIAL FOR REACT PROPS) ---
+
+        // Object Destructuring
+        const { name, age, lastName } = person;
+        console.log(`Destructured values: ${name} ${lastName}, Age: ${age}`);
+
+        // Array Destructuring
+        const rgb = [255, 140, 0];
+        const [red, green, blue] = rgb;
+        console.log(`Destructured RGB: Red ${red}, Green ${green}, Blue ${blue}`);
+    </script>
+</body>
+</html>

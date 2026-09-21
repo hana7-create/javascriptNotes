@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loops with Arrays</title>
+</head>
+<body>
+    <h1>Iterating Arrays with Loops & Methods</h1>
+
+    <script>
+        const scores = [45, 82, 90, 60, 30, 75];
+        const studentNames = ['Ali', 'Musa', 'Hani', 'Abdirahman'];
+
+        // 1. Traditional FOR Loop with Array Length
+        console.log("--- Standard For Loop over Array ---");
+        for (let i = 0; i < studentNames.length; i++) {
+            console.log(`Student #${i + 1}: ${studentNames[i]}`);
+        }
+
+
+        // 2. FOR...OF Loop (Cleaner syntax for accessing array elements directly)
+        console.log("--- For...Of Loop ---");
+        for (const name of studentNames) {
+            console.log(`Hello, ${name}`);
+        }
+
+
+        // 3. Loop over Array of Objects to calculate average
+        const studentsData = [
+            { name: "Ali", grade: 85 },
+            { name: "Musa", grade: 92 },
+            { name: "Hani", grade: 78 }
+        ];
+
+        let totalScore = 0;
+        for (let i = 0; i < studentsData.length; i++) {
+            totalScore += studentsData[i].grade;
+        }
+        const average = totalScore / studentsData.length;
+        console.log("Average Score:", average.toFixed(2));
+
+
+        // 4. Modern Array Iteration Methods (Used in React)
+
+        // .map() - Creates a transformed new array
+        const doubledScores = scores.map(score => score * 2);
+        console.log("Original Scores:", scores);
+        console.log("Doubled Scores (.map):", doubledScores);
+
+        // .filter() - Filters items based on condition
+        const passingScores = scores.filter(score => score >= 60);
+        console.log("Passing Scores >= 60 (.filter):", passingScores);
+    </script>
+</body>
+</html>

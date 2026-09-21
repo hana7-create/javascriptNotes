@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrays & Array Methods</title>
+</head>
+<body>
+    <h1>Arrays & Array Transformation Methods</h1>
+
+    <script>
+        // Basic Array
+        const fruits = ['mango', 'grapes', 'apple', 'watermelon'];
+        console.log("Third index element:", fruits[3]);
+
+        // Mutating Array Methods
+        fruits.push('dates');     // Add to end
+        console.log("After push:", fruits);
+
+        fruits.pop();            // Remove from end
+        console.log("After pop:", fruits);
+
+        fruits.unshift('kiwi');   // Add to start
+        console.log("After unshift:", fruits);
+
+        fruits.shift();          // Remove from start
+        console.log("After shift:", fruits);
+
+        // --- MISSING HIGH-ORDER ARRAY METHODS (CRITICAL FOR REACT) ---
+
+        // 1. .forEach() - Iterates through array items
+        console.log("--- Fruit List via forEach ---");
+        fruits.forEach((fruit, index) => {
+            console.log(`${index}: ${fruit}`);
+        });
+
+        // 2. .map() - Creates a NEW array by transforming each item
+        const uppercaseFruits = fruits.map(fruit => fruit.toUpperCase());
+        console.log("Mapped Uppercase Array:", uppercaseFruits);
+
+        // 3. .filter() - Creates a NEW array containing items passing a condition
+        const numbers = [10, 25, 30, 45, 50];
+        const bigNumbers = numbers.filter(num => num > 25);
+        console.log("Filtered Numbers (>25):", bigNumbers);
+    </script>
+</body>
+</html>

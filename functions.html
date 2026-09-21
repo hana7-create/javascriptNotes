@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Functions & ES6 Features</title>
+</head>
+<body>
+    <h1>Functions (Traditional vs Arrow) & ES6 Basics</h1>
+
+    <script>
+        // 1. Standard Function Declaration
+        function greet() {
+            console.log("Hello, World!");
+        }
+        greet();
+
+        // Standard function with parameters and return value
+        function add(a, b) {
+            return a + b;
+        }
+        console.log("Addition Result:", add(5, 6));
+
+        // 2. Function Expression
+        const multiply = function(x, y) {
+            return x * y;
+        };
+        console.log("Multiply Result:", multiply(4, 5));
+
+        // 3. Arrow Function (Modern ES6 syntax used in React)
+        const subtract = (a, b) => {
+            return a - b;
+        };
+        console.log("Subtract Result:", subtract(10, 4));
+
+        // Implicit Return Arrow Function (Single line expression)
+        const double = num => num * 2;
+        console.log("Double Result:", double(8));
+
+        // 4. Default Parameters
+        function welcomeUser(name = "Guest") {
+            console.log(`Welcome back, ${name}!`);
+        }
+        welcomeUser(); // Uses default "Guest"
+        welcomeUser("Ali"); // Overrides default
+    </script>
+</body>
+</html>

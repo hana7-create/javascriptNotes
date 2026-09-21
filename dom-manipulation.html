@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Selection & Traversal</title>
+</head>
+<body>
+    <h1>DOM Selection, Manipulation & Traversal</h1>
+
+    <div id="box">Box Container</div>
+    <div class="container">Container 1</div>
+    <section>Section 1</section>
+
+    <h2 class="select">Heading Select 1</h2>
+    <h2 class="select">Heading Select 2</h2>
+
+    <div id="empty-div"></div>
+
+    <div id="container">
+        <p>First Child</p>
+        <p class="inside">Inside Element</p>
+        <p>Last Child</p>
+    </div>
+
+    <script>
+        // 1. Selection Methods
+        const box = document.getElementById('box');
+        const containers = document.getElementsByClassName('container');
+        const sections = document.getElementsByTagName('section');
+        const singleHeading = document.querySelector('.select');
+        const allHeadings = document.querySelectorAll('.select');
+
+        // Text & Content Modification
+        singleHeading.textContent = 'Welcome to my Website';
+
+        // Styling and Attribute Manipulation via Loop
+        allHeadings.forEach(heading => {
+            heading.style.color = 'red';
+            heading.style.backgroundColor = 'yellow';
+
+            heading.setAttribute('id', 'highlighted');
+            heading.removeAttribute('id');
+
+            // Creating and Appending Elements
+            const newH3 = document.createElement('h3');
+            newH3.textContent = 'Newly created element';
+            newH3.style.color = 'blue';
+            newH3.style.fontSize = '14px';
+            newH3.setAttribute('class', 'new-element');
+
+            heading.appendChild(newH3);
+        });
+
+        // innerHTML Dynamic Formatting
+        const emptyDiv = document.getElementById('empty-div');
+        emptyDiv.style.backgroundColor = 'lightgray';
+        emptyDiv.innerHTML = `
+            <h1 class="new-h1">New Heading Created</h1>
+            <p>New paragraph injected dynamically.</p>
+        `;
+
+        // 2. DOM Traversal
+        const parentContainer = document.getElementById('container');
+        console.log("Parent:", parentContainer.parentElement);
+        console.log("Children Collection:", parentContainer.children);
+        console.log("First Element Child:", parentContainer.firstElementChild);
+        console.log("Next Sibling:", parentContainer.firstElementChild.nextElementSibling);
+        console.log("Last Element Child:", parentContainer.lastElementChild);
+        console.log("Previous Sibling:", parentContainer.lastElementChild.previousElementSibling);
+    </script>
+</body>
+</html>

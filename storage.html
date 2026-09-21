@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Storage & JSON</title>
+</head>
+<body>
+    <h1>Browser Local Storage & Data Serialization</h1>
+
+    <script>
+        // Store simple string key-value pairs
+        localStorage.setItem('Username', 'Ali');
+        localStorage.setItem('Age', '20');
+        console.log('Data saved to localStorage');
+
+        // Retrieve items
+        let retrievedAge = localStorage.getItem('Age');
+        let retrievedUser = localStorage.getItem('Username');
+        console.log(`Retrieved: User=${retrievedUser}, Age=${retrievedAge}`);
+
+        // Update and Remove Item
+        localStorage.setItem('Username', 'Musa');
+        localStorage.removeItem('Age');
+        console.log("Age after removal:", localStorage.getItem('Age'));
+
+        // Storing Complex Data Structures (Arrays / Objects)
+        let studentsList = ['ali', 'musa', 'ahmed', 'tariq'];
+
+        // Convert Array to String for Storage
+        localStorage.setItem('students', JSON.stringify(studentsList));
+
+        // Retrieve String and Parse Back to JavaScript Array
+        let parsedStudents = JSON.parse(localStorage.getItem('students'));
+        console.log("Parsed Array from localStorage:", parsedStudents);
+    </script>
+</body>
+</html>

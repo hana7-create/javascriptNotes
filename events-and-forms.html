@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Listeners & Form Events</title>
+</head>
+<body>
+    <h1>Event Listeners & Form Validation</h1>
+
+    <button id="btn">Hover or Click Me</button>
+    <button id="db-btn">Double Click Me</button>
+
+    <br><br>
+
+    <form id="studentForm">
+        <input type="text" id="name" placeholder="Enter Name">
+        <input type="email" id="email" placeholder="Enter Email">
+        <select id="course">
+            <option value="html">HTML/CSS</option>
+            <option value="js">JavaScript</option>
+            <option value="react">React</option>
+        </select>
+        <button type="submit">Submit Form</button>
+    </form>
+
+    <div id="message"></div>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const doubleBtn = document.getElementById('db-btn');
+
+        // Mouse Events
+        btn.addEventListener("mouseover", (e) => {
+            document.body.style.backgroundColor = 'coral';
+            btn.style.padding = '15px';
+        });
+
+        doubleBtn.addEventListener('dblclick', () => {
+            btn.style.backgroundColor = 'yellow';
+            doubleBtn.style.padding = '15px';
+            document.body.style.backgroundColor = 'cadetBlue';
+            doubleBtn.style.color = 'red';
+        });
+
+        doubleBtn.addEventListener('mouseout', (event) => {
+            document.body.style.backgroundColor = 'white';
+        });
+
+        // Form & Input Events
+        const form = document.querySelector('#studentForm');                         
+        const nameInput = document.querySelector('#name');
+        const emailInput = document.querySelector('#email');
+        const courseInput = document.querySelector('#course');
+        const message = document.querySelector('#message');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevents full page reload
+            console.log('Form submission intercepted');
+
+            message.innerText = `
+                Successfully Enrolled!
+                Name: ${nameInput.value}
+                Email: ${emailInput.value}
+                Course Selected: ${courseInput.value}
+            `;
+        });
+
+        nameInput.addEventListener('input', (e) => {
+            console.log(`Live Name Input: ${e.target.value}`);
+        });
+
+        emailInput.addEventListener('focus', () => {
+            console.log('Email input field focused');
+        });
+
+        emailInput.addEventListener('blur', () => {
+            console.log('Email input lost focus');
+        });
+
+        courseInput.addEventListener('change', () => {
+            console.log(`Course changed to: ${courseInput.value}`);
+        });
+    </script>
+</body>
+</html>
